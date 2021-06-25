@@ -3,7 +3,7 @@ import React from 'react';
 import { AreaHeader } from './styled';
 import { Link } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
     return (
         
         
@@ -20,6 +20,11 @@ function Header() {
                      <li><Link to='/config'>Configurações</Link></li>
                      <li><Link to='/logout'>Sair</Link></li>
                  </ul>
+
+                 <div className="avatar">
+                     <img src={props.user.avatar}/>
+                     <labe>{props.user.name}</labe>
+                 </div>
              </nav>
 
 

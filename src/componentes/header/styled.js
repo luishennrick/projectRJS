@@ -24,8 +24,11 @@ export const AreaHeader = styled.div`
 
   nav{
 
+      display: flex;
+
       ul{
           display:flex;
+          margin-right: 35px;
       }
 
       li{
@@ -39,6 +42,27 @@ export const AreaHeader = styled.div`
               &:hover{
                   color: white;
               }
+          }
+      }
+
+      .avatar{
+          display: flex;
+          align-items: center;
+          
+          img{
+              width: 35px;
+              border-radius: 20px;
+              border-margin: 20px;
+              margin-right: 10px;
+              cursor: pointer;
+
+          }
+
+          label{
+              font-size: 14px;
+              cursor: pointer;
+              color: #ccc;
+
           }
       }
 

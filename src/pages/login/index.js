@@ -1,10 +1,27 @@
 import  React from 'react';
 import {BrowserRouter, Switch, Route ,Link } from 'react-router-dom';
-import {Arealogin} from './styled.js'
+import {Arealogin} from './styled.js';
 import { BtnDefaultIcons, BtnDefaut} from '../../componentes/styled.js';
 import  FacebookIcon  from '@material-ui/icons/Facebook';
 import GTranslateIcon from '@material-ui/icons/GTranslate';
- export default function login() {
+import Api from '../../api.js';
+
+ export default function login({onReceiveGoogle}) {
+
+     const AloginGoogle = async () => {
+
+         let result = await Api.logingoogle();
+
+         if (result){
+          onReceiveGoogle(result.user);
+
+         } else {
+           alert('error');
+         }
+
+
+
+     }
 
   return(
    <BrowserRouter>
@@ -53,7 +70,7 @@ import GTranslateIcon from '@material-ui/icons/GTranslate';
         <div className="center">  Login com Facebook </div>
         </BtnDefaultIcons>
 
-        <BtnDefaultIcons> 
+        <BtnDefaultIcons onClick={AloginGoogle}> 
          <GTranslateIcon/>
         <div className="center"> Login com Google </div>
         </BtnDefaultIcons>
